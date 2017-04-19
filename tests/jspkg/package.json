@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "jspkg",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node dev.js",
+    "test": "node test.js"
+  },
+  "author": "CERN",
+  "license": "ISC",
+  "description": "PyNPM test",
+  "dependencies": {
+    "jsdep": "file:../jsdep"
+  }
+}
