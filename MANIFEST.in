@@ -28,6 +28,7 @@ include *.rst
 include *.sh
 include *.txt
 include LICENSE
+include MAINTAINERS
 include pytest.ini
 prune docs/_build
 recursive-include docs *.bat
