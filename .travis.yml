@@ -46,6 +46,9 @@ python:
 
 before_install:
   - "nvm install 6; nvm use 6"
+  # Install Yarn
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
   - "travis_retry pip install --upgrade pip setuptools py"
   - "travis_retry pip install twine wheel coveralls requirements-builder"
   - "requirements-builder -e all --level=min setup.py > .travis-lowest-requirements.txt"
@@ -66,8 +69,8 @@ deploy:
   provider: pypi
   user: inveniosoftware
   password:
-    secure: TODO:PYPISECUREHASH
-  distributions: "compile_catalog sdist bdist_wheel"
+    secure: "pMGIcd7+R5ZkZ8Wv52mI9kK25sWH/Q6pZnCDESCtfZw9VUtdVQriei3Lv1gd7g3hVqLKyjWtPRZ1EuvQqKKogVJGxbvxrm1U3BHTuG/HjC22O4TAyK7xQEqVi0EwYySJYhl1oXlkkeyUuD2oxSEQ0FJoVCYGVCcv7Vn13aczRlaxk8aoR3U6K1Y2gASH/bFL4XWDM1M0nHIt/HTaCdrgcugKxq4wtDZaW6W1AD5JYMUgpVRzD+UheeZOIeJgSFGsB1Ah3gjsQ4xjbfDV1DR/d/vIVdHsFH31NRMEgUs4Qs2SGcpP9EZSICoz75egb4fIVS3TUkjyNWc3xk4SGc/qZTf7kKXlHdj43qim+lMlwfoYREKYYh33POjtrWls8P39q7OzCTjsM7FOLOXci9N7ncEmAN8wHweCUxwoIxQwS+C8P/Cs7bGaQsc1F05N25fAyrSAZhFAsqpyrhKg1uOAwMohawwYbsXuo71cKTriQXuVyZb8cM1LhTYPyXkhggJS2x4xgJxFc+t5dHRifd/XJyJ+8EbPkckqjqxM0VpDgXqAKKBLb6Rzp4vdD2o/toxyR+H2sDYkwsN5lTrcdApBv2CFF6BgJccKZ9Vj2mXXrcXBOkt8avUEIiu2AcyFILcXe/8iv0NW0xGMPQKEgLPAuEU42bkLuL456SrjvcyN/t8="
+  distributions: "sdist bdist_wheel"
   on:
     tags: true
     python: "2.7"
