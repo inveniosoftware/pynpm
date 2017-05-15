@@ -1,26 +1,11 @@
 # -*- coding: utf-8 -*-
 #
-# This file is part of Invenio.
+# This file is part of PyNPM
 # Copyright (C) 2017 CERN.
 #
-# Invenio is free software; you can redistribute it
-# and/or modify it under the terms of the GNU General Public License as
-# published by the Free Software Foundation; either version 2 of the
-# License, or (at your option) any later version.
-#
-# Invenio is distributed in the hope that it will be
-# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Invenio; if not, write to the
-# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
-# MA 02111-1307, USA.
-#
-# In applying this license, CERN does not
-# waive the privileges and immunities granted to it by virtue of its status
-# as an Intergovernmental Organization or submit itself to any jurisdiction.
+# PyNPM is free software; you can redistribute it and/or modify
+# it under the terms of the Revised BSD License; see LICENSE file for
+# more details.
 
 """Python interface to your NPM and package.json."""
 
@@ -75,14 +60,13 @@ setup(
     description=__doc__,
     long_description=readme + '\n\n' + history,
     keywords='npm node package.json',
-    license='GPLv2',
+    license='BSD',
     author='CERN',
     author_email='info@inveniosoftware.org',
     url='https://github.com/inveniosoftware/pynpm',
     packages=packages,
     zip_safe=False,
     include_package_data=True,
-    platforms='any',
     extras_require=extras_require,
     install_requires=install_requires,
     setup_requires=setup_requires,
@@ -90,7 +74,7 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
