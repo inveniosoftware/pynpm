@@ -22,8 +22,6 @@ def run_npm(pkgdir, cmd, args=None, npm_bin='npm', wait=True):
     if wait:
         return subprocess.call(
             command,
-            stdout=sys.stdout,
-            stderr=sys.stderr,
             cwd=pkgdir,
         )
     else:
