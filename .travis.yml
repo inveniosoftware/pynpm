@@ -16,18 +16,22 @@ language: python
 
 matrix:
   fast_finish: true
+  allow_failures:
+    - env: REQUIREMENTS=devel
+    - python: 3.8
 
 cache:
   - pip
 
 env:
   - REQUIREMENTS=lowest
-  - REQUIREMENTS=release DEPLOY=true
+  - REQUIREMENTS=release
   - REQUIREMENTS=devel
 
 python:
-  - "2.7"
-  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
 
 before_install:
   - "nvm install 6; nvm use 6"
@@ -58,6 +62,4 @@ deploy:
   distributions: "sdist bdist_wheel"
   on:
     tags: true
-    python: "2.7"
-    repo: inveniosoftware/pynpm
-    condition: $DEPLOY = true
+  skip_existing: true
