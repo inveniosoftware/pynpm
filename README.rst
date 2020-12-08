@@ -2,8 +2,8 @@
  PyNPM
 =======
 
-.. image:: https://img.shields.io/travis/inveniosoftware/pynpm.svg
-        :target: https://travis-ci.org/inveniosoftware/pynpm
+.. image:: https://github.com/inveniosoftware/pynpm/workflows/CI/badge.svg
+        :target: https://github.com/inveniosoftware/pynpm/actions?query=workflow%3ACI
 
 .. image:: https://img.shields.io/coveralls/inveniosoftware/pynpm.svg
         :target: https://coveralls.io/r/inveniosoftware/pynpm
