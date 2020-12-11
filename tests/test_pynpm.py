@@ -61,9 +61,9 @@ def test_command_nowait(pkg):
     npmpkg = NPMPackage(pkg)
     proc = npmpkg.run_script('test', wait=False)
     # Just check output of last line
-    for l in proc.stdout:
+    for line in proc.stdout:
         pass
-    assert l.decode() == u'test\n'
+    assert line.decode() == u'test\n'
 
 
 def test_command_install(pkg, deppkg):
