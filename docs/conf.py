@@ -2,6 +2,7 @@
 #
 # This file is part of PyNPM
 # Copyright (C) 2017 CERN.
+# Copyright (C) 2022 Graz University of Technology.
 #
 # PyNPM is free software; you can redistribute it and/or modify
 # it under the terms of the Revised BSD License; see LICENSE file for
@@ -73,7 +74,7 @@ release = __version__
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
