@@ -16,7 +16,7 @@ import subprocess
 import sys
 
 
-def run_npm(pkgdir, cmd, args=None, npm_bin='npm', wait=True):
+def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True):
     """Run NPM."""
     command = [npm_bin, cmd] + list(args)
     if wait:

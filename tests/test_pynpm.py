@@ -21,6 +21,7 @@ from pynpm import NPMPackage, YarnPackage
 def test_version():
     """Test version import."""
     from pynpm import __version__
+
     assert __version__
 
 
@@ -41,29 +42,29 @@ def test_package_json_path(pkg):
 def test_nonexsting_command(pkg):
     """Test non-existing command."""
     npmpkg = NPMPackage(pkg)
-    pytest.raises(AttributeError, getattr, npmpkg, 'cmd_doesnotexists')
+    pytest.raises(AttributeError, getattr, npmpkg, "cmd_doesnotexists")
 
 
 def test_disabled_command(pkg):
     """Test command that has been disabled."""
-    npmpkg = NPMPackage(pkg, commands=['run-script'])
-    pytest.raises(AttributeError, getattr, npmpkg, 'install')
+    npmpkg = NPMPackage(pkg, commands=["run-script"])
+    pytest.raises(AttributeError, getattr, npmpkg, "install")
 
 
 def test_command(pkg):
     """Test non-existing command."""
     npmpkg = NPMPackage(pkg)
-    assert npmpkg.run_script('test') == 0
+    assert npmpkg.run_script("test") == 0
 
 
 def test_command_nowait(pkg):
     """Test non-existing command."""
     npmpkg = NPMPackage(pkg)
-    proc = npmpkg.run_script('test', wait=False)
+    proc = npmpkg.run_script("test", wait=False)
     # Just check output of last line
     for line in proc.stdout:
         pass
-    assert line.decode() == u'test\n'
+    assert line.decode() == "test\n"
 
 
 def test_command_install(pkg, deppkg):

@@ -26,17 +26,17 @@ class NPMPackage(object):
     :param commands: List of allowed NPM commands to invoke.
     """
 
-    def __init__(self, filepath, npm_bin='npm', commands=None):
+    def __init__(self, filepath, npm_bin="npm", commands=None):
         """Initialize package."""
         self._commands = commands or [
-            'build',
-            'init',
-            'install',
-            'link',
-            'run-script',
-            'start',
-            'stop',
-            'test',
+            "build",
+            "init",
+            "install",
+            "link",
+            "run-script",
+            "start",
+            "stop",
+            "test",
         ]
         self._package_json_path = filepath
         self._package_json_contents = None
@@ -45,15 +45,15 @@ class NPMPackage(object):
     @property
     def package_json_path(self):
         """Get ``package.json`` file path."""
-        if basename(self._package_json_path) != 'package.json':
-            return join(self._package_json_path, 'package.json')
+        if basename(self._package_json_path) != "package.json":
+            return join(self._package_json_path, "package.json")
         return self._package_json_path
 
     @property
     def package_json(self):
         """Read ``package.json`` contents."""
         if self._package_json_contents is None:
-            with open(self.package_json_path, 'r') as fp:
+            with open(self.package_json_path, "r") as fp:
                 self._package_json_contents = json.load(fp)
         return self._package_json_contents
 
@@ -78,19 +78,17 @@ class NPMPackage(object):
 
     def __getattr__(self, name):
         """Run partial function for an NPM command."""
-        name = name.replace('_', '-')
+        name = name.replace("_", "-")
         if name in self._commands:
             return partial(self._run_npm, name)
-        raise AttributeError('Invalid NPM command.')
+        raise AttributeError("Invalid NPM command.")
 
 
 class YarnPackage(NPMPackage):
     """Yarn package."""
 
-    def __init__(self, filepath, yarn_bin='yarn', commands=None):
+    def __init__(self, filepath, yarn_bin="yarn", commands=None):
         """Initialize package."""
         super(YarnPackage, self).__init__(
-            filepath,
-            npm_bin=yarn_bin,
-            commands=commands or ['install']
+            filepath, npm_bin=yarn_bin, commands=commands or ["install"]
         )
