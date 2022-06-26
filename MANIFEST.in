@@ -25,3 +25,4 @@ recursive-include tests *.js
 recursive-include tests *.json
 recursive-include tests *.py
 recursive-include .github/workflows *.yml
+include .git-blame-ignore-revs
