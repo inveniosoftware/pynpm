@@ -12,6 +12,7 @@
 from __future__ import absolute_import, print_function
 
 from .package import NPMPackage, YarnPackage
-from .version import __version__
+
+__version__ = '0.1.2'
 
 __all__ = ('__version__', 'NPMPackage', 'YarnPackage')
