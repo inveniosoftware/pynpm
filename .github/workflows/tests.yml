@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2020 CERN.
+# Copyright (C) 2022 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -29,9 +30,11 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-          python-version: [3.6, 3.7, 3.8]
-          requirements-level: [min, pypi]
+          python-version: [3.7, 3.8, 3.9]
+          requirements-level: [pypi]
 
+    env:
+      EXTRAS: tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -44,7 +47,7 @@ jobs:
       - name: Generate dependencies
         run: |
           pip install wheel requirements-builder
-          requirements-builder -e tests --level=${{ matrix.requirements-level }} setup.py > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
+          requirements-builder -e "$EXTRAS" --level=${{ matrix.requirements-level }} setup.py > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
 
       - name: Cache pip
         uses: actions/cache@v2
@@ -55,7 +58,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
-          pip install .[all]
+          pip install .[$EXTRAS]
           pip freeze
 
       - name: Run tests
