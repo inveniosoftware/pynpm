@@ -85,3 +85,24 @@ You can also run other NPM commands or restrict which commands you can run:
 .. code-block:: python
 
     pkg = NPMPackage('path/to/package.json', commands=['install'])
+
+Trouble shooting
+================
+
+Windows user may face the following error when running the ``NPM`` command:
+
+.. code-block:: console
+
+    [WinError 2] The system cannot find the file specified
+
+It means supbrossess is unable to run the specific command. To fix this issue, 
+use the ``shell=True`` option uppon class initialization:
+
+.. code-block:: python
+
+    pkg = NPMPackage('path/to/package.json', shell=True)
+
+.. danger:: 
+
+    This option is not recommended for security reasons. It should only be used
+    on trusted inputs.
