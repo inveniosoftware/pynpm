@@ -24,9 +24,10 @@ class NPMPackage(object):
     :param filepath: Path to ``package.json`` or directory containing the file.
     :param npm_bin: Path to NPM binary. Defaults to ``npm``.
     :param commands: List of allowed NPM commands to invoke.
+    :param shell: Run NPM in a shell. Defaults to ``False``.
     """
 
-    def __init__(self, filepath, npm_bin="npm", commands=None):
+    def __init__(self, filepath, npm_bin="npm", commands=None, shell=False):
         """Initialize package."""
         self._commands = commands or [
             "build",
@@ -41,6 +42,7 @@ class NPMPackage(object):
         self._package_json_path = filepath
         self._package_json_contents = None
         self._npm_bin = npm_bin
+        self._shell = shell
 
     @property
     def package_json_path(self):
@@ -73,6 +75,7 @@ class NPMPackage(object):
             command,
             npm_bin=self._npm_bin,
             args=args,
+            shell=self._shell,
             **kwargs
         )
 
