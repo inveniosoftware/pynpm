@@ -19,8 +19,6 @@ from os.path import dirname, join
 import pkg_resources
 import pytest
 
-from pynpm import NPMPackage, YarnPackage
-
 
 @pytest.yield_fixture()
 def tmpdir():

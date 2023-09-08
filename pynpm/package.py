@@ -90,8 +90,8 @@ class NPMPackage(object):
 class YarnPackage(NPMPackage):
     """Yarn package."""
 
-    def __init__(self, filepath, yarn_bin="yarn", commands=None):
+    def __init__(self, filepath, yarn_bin="yarn", commands=None, shell=False):
         """Initialize package."""
         super(YarnPackage, self).__init__(
-            filepath, npm_bin=yarn_bin, commands=commands or ["install"]
+            filepath, npm_bin=yarn_bin, commands=commands or ["install"], shell=shell
         )

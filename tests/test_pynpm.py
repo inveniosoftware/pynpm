@@ -10,8 +10,9 @@
 """Module tests."""
 
 from __future__ import absolute_import, print_function
-from os.path import dirname
+
 import platform
+from os.path import dirname
 
 import pytest
 
@@ -79,13 +80,14 @@ def test_command_install(pkg, deppkg):
 
 def test_command_install_yarn(pkg, deppkg):
     """Test yarn install."""
-    yarnpkg = YarnPackage(pkg)
+    yarnpkg = YarnPackage(pkg, shell=is_windows)
     assert yarnpkg.install() == 0
+
 
 @pytest.mark.skipif(not is_windows, reason="Simply check a known Windows bug")
 def test_command_windows_fail_without_shell(pkg):
     """Test that command does not work on windows without the shell option."""
-    
-    with pytest.raises(FileNotFoundError): 
+
+    with pytest.raises(FileNotFoundError):
         npmpkg = NPMPackage(pkg)
         assert npmpkg.install() == 0
