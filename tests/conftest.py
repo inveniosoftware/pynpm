@@ -16,7 +16,6 @@ import shutil
 import tempfile
 from os.path import dirname, join
 
-import pkg_resources
 import pytest
 
 

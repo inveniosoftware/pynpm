@@ -11,9 +11,7 @@
 
 from __future__ import absolute_import, print_function
 
-import os
 import subprocess
-import sys
 
 
 def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True, shell=False):
