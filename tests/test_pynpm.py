@@ -77,3 +77,4 @@ def test_command_install_yarn(pkg, deppkg):
     """Test yarn install."""
     yarnpkg = YarnPackage(pkg)
     assert yarnpkg.install() == 0
+
