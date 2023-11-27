@@ -11,18 +11,17 @@
 
 from __future__ import absolute_import, print_function
 
-import os
 import subprocess
-import sys
 
 
-def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True):
+def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True, shell=False):
     """Run NPM."""
     command = [npm_bin, cmd] + list(args)
     if wait:
         return subprocess.call(
             command,
             cwd=pkgdir,
+            shell=shell,
         )
     else:
         return subprocess.Popen(
@@ -30,4 +29,5 @@ def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             cwd=pkgdir,
+            shell=shell,
         )
