@@ -18,7 +18,11 @@ def run_npm(pkgdir, cmd, args=None, npm_bin="npm", wait=True, shell=False):
     """Run NPM."""
     command = [npm_bin, cmd] + list(args)
     if wait:
-        return subprocess.call(command, cwd=pkgdir, shell=shell,)
+        return subprocess.call(
+            command,
+            cwd=pkgdir,
+            shell=shell,
+        )
     else:
         return subprocess.Popen(
             command,

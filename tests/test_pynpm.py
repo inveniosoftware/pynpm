@@ -77,6 +77,7 @@ def test_command_install(pkg, deppkg):
     npmpkg = NPMPackage(pkg, shell=is_windows)
     assert npmpkg.install() == 0
 
+
 @pytest.mark.skipif(is_windows, reason="Yarn is not yet working on windows")
 def test_command_install_yarn(pkg, deppkg):
     """Test yarn install."""
