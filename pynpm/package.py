@@ -96,3 +96,12 @@ class YarnPackage(NPMPackage):
         super(YarnPackage, self).__init__(
             filepath, npm_bin=yarn_bin, commands=commands or ["install"], shell=shell
         )
+
+class PnpmPackage(NPMPackage):
+    """Yarn package."""
+
+    def __init__(self, filepath, pnpm_bin="pnpm", commands=None, shell=False):
+        """Initialize package."""
+        super(PnpmPackage, self).__init__(
+            filepath, npm_bin=pnpm_bin, commands=commands or ["install"], shell=shell
+        )
