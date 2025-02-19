@@ -3,6 +3,7 @@
 # This file is part of PyNPM
 # Copyright (C) 2017 CERN.
 # Copyright (C) 2023 Rambaud Pierrick.
+# Copyright (C) 2025 Graz University of Technology.
 #
 # PyNPM is free software; you can redistribute it and/or modify
 # it under the terms of the Revised BSD License; see LICENSE file for
@@ -96,3 +97,29 @@ class YarnPackage(NPMPackage):
         super(YarnPackage, self).__init__(
             filepath, npm_bin=yarn_bin, commands=commands or ["install"], shell=shell
         )
+
+
+class PNPMPackage(NPMPackage):
+    """API to a PNPM ``package.json``."""
+
+    def __init__(self, filepath, npm_bin="pnpm", commands=None, shell=False):
+        """Construct."""
+        super().__init__(
+            filepath=filepath, npm_bin=npm_bin, commands=commands, shell=shell
+        )
+
+    def _run_npm(self, command, *args, **kwargs):
+        """Run a PNPM command.
+
+        By default the call is blocking until PNPM is finished and output
+        is directed to stdout. If ``wait=False`` is passed to the method,
+        you get a handle to the process (return value of ``subprocess.Popen``).
+
+        :param command: PNPM command to run.
+        :param args: List of arguments.
+        :param wait: Wait for PNPM command to finish.
+        """
+        if command == "install":
+            args = ["--shamefully-hoist"]
+
+        return super()._run_npm(command, *args, **kwargs)

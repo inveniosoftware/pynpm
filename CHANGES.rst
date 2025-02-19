@@ -1,6 +1,10 @@
 Changes
 =======
 
+Version <next>
+
+- Add ``PNPMPackage``
+
 Version 0.2.0 (released 2023-11-27)
 
 - Added ``shell`` argument.
