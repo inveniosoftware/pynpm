@@ -18,5 +18,3 @@ jobs:
   build-n-publish:
     uses: inveniosoftware/workflows/.github/workflows/pypi-publish.yml@master
     secrets: inherit
-    with:
-      babel-compile-catalog: true
