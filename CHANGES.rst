@@ -1,7 +1,7 @@
 Changes
 =======
 
-Version <next>
+Version 0.3.0 (released 2025-02-20)
 
 - Add ``PNPMPackage``
 
