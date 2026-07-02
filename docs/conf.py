@@ -9,7 +9,6 @@ from __future__ import print_function
 
 import sys
 
-import sphinx.environment
 
 from pynpm import __version__
 

@@ -72,7 +72,7 @@ class NPMPackage(object):
             npm_bin=self._npm_bin,
             args=args,
             shell=self._shell,
-            **kwargs
+            **kwargs,
         )
 
     def __getattr__(self, name):
