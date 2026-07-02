@@ -1,6 +1,13 @@
 Changes
 =======
 
+Version 0.3.1 (released 2026-07-02)
+
+- chore(cleanup): remove unnecessary files
+- chore(setup): migrate from setuptools to hatchling
+- chore(lint): fix formatter and linter complaints
+- chore(licenses): update license headers to use SPDX
+
 Version 0.3.0 (released 2025-02-20)
 
 - Add ``PNPMPackage``
