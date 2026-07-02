@@ -1,4 +1,59 @@
-[build-system]
-requires = ["setuptools", "wheel", "babel>2.8"]
-build-backend = "setuptools.build_meta"
+# SPDX-FileCopyrightText: 2017 CERN.
+# SPDX-FileCopyrightText: 2022 Graz University of Technology.
+# SPDX-FileCopyrightText: 2026 TU Wien.
+# SPDX-License-Identifier: MIT
 
+[project]
+name = "pynpm"
+description = "Python interface to your NPM and package.json."
+readme = "README.rst"
+requires-python = ">=3.7"
+license = "BSD-3-Clause"
+authors = [
+  { name = "CERN", email = "info@inveniosoftware.org" },
+]
+keywords = [
+  "node",
+  "npm",
+  "package.json",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/inveniosoftware/pynpm"
+
+[project.optional-dependencies]
+docs = []
+tests = [
+  "pytest-black>=0.6.0",
+  "pytest-cache>=1.0",
+  "pytest-invenio>=1.4.0",
+  "sphinx>=4.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "pynpm/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/pynpm",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pydocstyle]
+add_ignore = "D401"
+
+[tool.pytest.ini_options]
+addopts = '--black --isort --pydocstyle --doctest-glob="*.rst" --doctest-modules --cov=pynpm --cov-report=term-missing'
+testpaths = "tests pynpm"
+live_server_scope = "module"
