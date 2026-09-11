@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2017 CERN.
 # SPDX-FileCopyrightText: 2023 Rambaud Pierrick.
+# SPDX-FileCopyrightText: 2026 Graz University of Technology.
 # SPDX-License-Identifier: BSD-3-Clause
 
 """Pytest configuration."""
@@ -14,7 +15,7 @@ from os.path import dirname, join
 import pytest
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def tmpdir():
     """Temporary directory."""
     path = tempfile.mkdtemp()
