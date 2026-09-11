@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2017 CERN.
 # SPDX-FileCopyrightText: 2023 Rambaud Pierrick.
-# SPDX-FileCopyrightText: 2025 Graz University of Technology.
+# SPDX-FileCopyrightText: 2025-2026 Graz University of Technology.
 # SPDX-License-Identifier: BSD-3-Clause
 
 """Python interface to your NPM and package.json."""
@@ -115,5 +115,8 @@ class PNPMPackage(NPMPackage):
         """
         if command == "install":
             args = ["--shamefully-hoist"]
+
+        if command == "run-script":
+            command = "run"
 
         return super()._run_npm(command, *args, **kwargs)
