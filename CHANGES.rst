@@ -1,6 +1,11 @@
 Changes
 =======
 
+Version 0.3.2 (released 2026-09-14)
+
+- fix(tests): PytestDeprecationWarning
+- comp(pnpm-12): removed run-script alias
+
 Version 0.3.1 (released 2026-07-02)
 
 - chore(cleanup): remove unnecessary files
